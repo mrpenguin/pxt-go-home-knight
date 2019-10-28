@@ -1,18 +1,10 @@
-<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="kS@,`K+4*j/lo49)H|7?">mySprite</variable><variable type="KIND_SpriteKind" id="IpIaaT+VRhseRIX~i){W">Player</variable><variable type="KIND_SpriteKind" id="X+5lW4NeEF}.jg$_3_1c">Projectile</variable><variable type="KIND_SpriteKind" id="?[F@38LG~TNO~zBj^WNI">Food</variable><variable type="KIND_SpriteKind" id="]L5I/WZ|cc$ZQElv.qw)">Enemy</variable></variables><block type="pxt-on-start" x="0" y="0"><statement name="HANDLER"><block type="variables_set"><field name="VAR" id="kS@,`K+4*j/lo49)H|7?">mySprite</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate"><value name="img"><shadow type="screen_image_picker"><field name="img">img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . 3 3 3 3 3 3 3 . . . . 
-3 3 3 3 3 . . . . . . 3 . . . . 
-. . . . . . . . . . 3 3 . . . . 
-. . . . . . . . . . . 3 3 . . . 
-. . . . . . . . . . . . 3 . . . 
-. . . . . . . . . . . . . 3 . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`</field></shadow></value><value name="kind"><shadow type="spritekind"><field name="MEMBER">Player</field></shadow></value></block></value></block></statement></block></xml>
+<xml xmlns="https://developers.google.com/blockly/xml"><variables><variable id="kS@,`K+4*j/lo49)H|7?">mySprite</variable><variable type="KIND_SpriteKind" id="IpIaaT+VRhseRIX~i){W">Player</variable><variable type="KIND_SpriteKind" id="X+5lW4NeEF}.jg$_3_1c">Projectile</variable><variable type="KIND_SpriteKind" id="?[F@38LG~TNO~zBj^WNI">Food</variable><variable type="KIND_SpriteKind" id="]L5I/WZ|cc$ZQElv.qw)">Enemy</variable></variables><block type="pxt-on-start" id="GymW+8eX|@N0ASg~kAJ7" x="0" y="0"><statement name="HANDLER"><block type="variables_set" id="BZ{YHka,[KP39:uu=90L"><field name="VAR" id="kS@,`K+4*j/lo49)H|7?">mySprite</field><value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow><block type="spritescreate" id="dT`bSgk9q~Ynf:fF)A-9"><value name="img"><shadow type="screen_image_picker" id="fibp[/bMc@@32`W#xbh9"><field name="img">img`
+. b . b b b b . 
+. b . b b b b . 
+. b . b b b b . 
+. b . . b b . . 
+b b b b b b b b 
+. b . b b b b . 
+. . . b b b b . 
+. . . b . . b . 
+`</field></shadow></value><value name="kind"><shadow type="spritekind" id="YC09mC,G34)/`mFJ2JHa"><field name="MEMBER">Player</field></shadow></value></block></value></block></statement></block></xml>
