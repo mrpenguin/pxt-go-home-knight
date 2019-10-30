@@ -44,7 +44,6 @@ c 7 7 c 7 7 7 7 7 7 c 7 7 7 7 7 c 7 7 c
 b b b b b b b b b b b b b b b b b b b b 
 b b b b b b b b b b b b b b b b b b b b 
 c 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 c 
-c 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 c 
 `, TileScale.Eight)
-mySprite.x = 8 * 10
+mySprite.x = 8 * 10 + 4
 mySprite.y = scene.screenHeight() - 4
