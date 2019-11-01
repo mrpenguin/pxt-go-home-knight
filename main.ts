@@ -45,7 +45,7 @@ c 7 7 7 6 6 7 6
 6 7 7 7 b b b 6 
 6 7 b b 6 6 6 6 
 c c c c c c c c 
-`, false)
+`, true)
 scene.setTile(7, img`
 7 7 7 7 7 7 7 7 
 7 7 7 7 6 7 7 7 
@@ -57,24 +57,24 @@ scene.setTile(7, img`
 7 7 7 7 7 7 7 7 
 `, false)
 scene.setTile(11, img`
-4 4 4 4 4 4 d 4 
-4 5 4 4 4 4 4 4 
-4 4 4 4 4 4 4 4 
-4 d 4 4 4 4 4 5 
-4 4 4 5 4 4 4 4 
-4 4 4 4 4 4 4 4 
-4 5 4 4 4 d 4 4 
-4 4 4 4 4 4 4 4 
+7 7 7 7 7 7 d 7 
+7 5 7 7 7 7 7 7 
+7 7 7 7 7 7 7 7 
+7 d 7 7 7 7 7 5 
+7 7 7 5 7 7 7 7 
+7 7 7 7 7 7 7 7 
+7 5 7 7 7 d 7 7 
+7 7 7 7 7 7 7 7 
 `, false)
 scene.setTile(6, img`
 6 6 6 6 6 6 6 6 
-9 9 6 9 9 6 6 9 
+6 6 6 6 6 6 6 9 
 6 6 6 6 6 6 6 6 
-6 9 9 9 6 9 9 9 
+6 6 6 9 6 6 6 6 
 6 6 6 6 6 6 6 6 
-9 9 6 9 6 9 9 6 
+9 6 6 6 6 6 6 6 
 6 6 6 6 6 6 6 6 
-6 9 6 6 9 9 6 6 
+6 6 6 6 6 9 6 6 
 `, false)
 scene.setTile(5, img`
 f f f f f f f f 
@@ -95,4 +95,4 @@ b b b b b b b b
 d d d d d b d d 
 b b b b b b b b 
 d d b d d d d d 
-`, false)
+`, true)
