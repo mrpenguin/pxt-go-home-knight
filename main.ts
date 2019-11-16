@@ -1,17 +1,12 @@
+scene.onHitTile(SpriteKind.Player, 13, function (sprite) {
+    resetPlayerMove()
+})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     if (playerMoving != true) {
         playerMoving = true
         playerStartingX = playerSprite.x
         playerStartingY = playerSprite.y
         moveDirection = "left"
-    }
-})
-controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (playerMoving != true) {
-        playerMoving = true
-        playerStartingX = playerSprite.x
-        playerStartingY = playerSprite.y
-        moveDirection = "right"
     }
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -33,6 +28,20 @@ function setPlayerEndMovePosition () {
         playerSprite.x = playerStartingX + playerSprite.width
     }
 }
+scene.onHitTile(SpriteKind.Player, 12, function (sprite) {
+    resetPlayerMove()
+})
+scene.onHitTile(SpriteKind.Player, 0, function (sprite) {
+    resetPlayerMove()
+})
+controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
+    if (playerMoving != true) {
+        playerMoving = true
+        playerStartingX = playerSprite.x
+        playerStartingY = playerSprite.y
+        moveDirection = "right"
+    }
+})
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     if (playerMoving != true) {
         playerMoving = true
@@ -41,19 +50,22 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         moveDirection = "up"
     }
 })
-scene.onHitTile(SpriteKind.Player, 12, function (sprite) {
-    resetPlayerMove()
-})
-scene.onHitTile(SpriteKind.Player, 0, function (sprite) {
-    resetPlayerMove()
-})
-
-let playerStartingX = 0
-let playerStartingY = 0
-let moveDirection = ""
-let playerSprite: Sprite = null
-let playerMoving = false
+function resetPlayerMove () {
+    if (isPlayerCloseToFinish()) {
+        setPlayerEndMovePosition()
+    } else {
+        playerSprite.x = playerStartingX
+        playerSprite.y = playerStartingY
+    }
+    playerMoving = false
+}
+let projectile: Sprite = null
 let targetPosition = 0
+let playerMoving = false
+let playerSprite: Sprite = null
+let moveDirection = ""
+let playerStartingY = 0
+let playerStartingX = 0
 function isPlayerCloseToFinish():boolean {
     if(playerMoving){
         if(moveDirection == "up" || moveDirection == "down"){
@@ -67,15 +79,6 @@ function isPlayerCloseToFinish():boolean {
         }
     }
     return false;
-}
-function resetPlayerMove(): void {
-    if (isPlayerCloseToFinish()) {
-        setPlayerEndMovePosition()
-    } else {
-        playerSprite.x = playerStartingX
-        playerSprite.y = playerStartingY
-    }
-    playerMoving = false
 }
 playerSprite = sprites.create(img`
     . d . d b b b .
@@ -166,6 +169,8 @@ scene.setTile(13, img`
     b b b b b b b b
     d d b d d d d d
 `, true)
+let fireballPattern = [1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0]
+let fireballCounter = 0
 game.onUpdateInterval(100, function () {
     if (playerMoving) {
         if (moveDirection == "up") {
@@ -205,6 +210,23 @@ if (playerSprite.x <= targetPosition) {
             }
         }
     }
-
-    let projectile = sprites.createProjectileFromSide(img`.`, 0, 100)
+})
+game.onUpdateInterval(1000, function () {
+    if (fireballPattern[fireballCounter] === 1) {
+        projectile = sprites.createProjectileFromSide(img`
+            . . . 2 2 2 . .
+            . . 2 2 4 4 2 .
+            . 2 2 4 5 1 4 2
+            2 2 4 4 5 1 4 2
+            2 2 4 4 5 1 4 2
+            . 2 2 4 5 1 4 2
+            . . 2 2 4 4 2 .
+            . . . 2 2 2 . .
+        `, 10, 0)
+        projectile.y = screen.height - 8 - 4
+    }
+    fireballCounter++
+    if (fireballCounter >= fireballPattern.length) {
+        fireballCounter = 0
+    }
 })
