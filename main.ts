@@ -206,5 +206,5 @@ if (playerSprite.x <= targetPosition) {
         }
     }
 
-    let projectile = sprites.createProjectileFromSide(img` `, 0, 100)
+    let projectile = sprites.createProjectileFromSide(img`.`, 0, 100)
 })
