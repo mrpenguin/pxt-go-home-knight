@@ -169,7 +169,7 @@ scene.setTile(13, img`
     b b b b b b b b
     d d b d d d d d
 `, true)
-let fireballPattern = [1, 0, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0]
+let fireballPattern = [1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 0, 0]
 let fireballCounter = 0
 game.onUpdateInterval(100, function () {
     if (playerMoving) {
@@ -211,19 +211,25 @@ if (playerSprite.x <= targetPosition) {
         }
     }
 })
+let fireballImage = img`
+    . . . 2 2 2 . .
+    . . 2 2 4 4 2 .
+    . 2 2 4 5 1 4 2
+    2 2 4 4 5 1 4 2
+    2 2 4 4 5 1 4 2
+    . 2 2 4 5 1 4 2
+    . . 2 2 4 4 2 .
+    . . . 2 2 2 . .
+`
+let fireballFlipImage = fireballImage.clone()
+fireballFlipImage.flipX()
 game.onUpdateInterval(1000, function () {
     if (fireballPattern[fireballCounter] === 1) {
-        projectile = sprites.createProjectileFromSide(img`
-            . . . 2 2 2 . .
-            . . 2 2 4 4 2 .
-            . 2 2 4 5 1 4 2
-            2 2 4 4 5 1 4 2
-            2 2 4 4 5 1 4 2
-            . 2 2 4 5 1 4 2
-            . . 2 2 4 4 2 .
-            . . . 2 2 2 . .
-        `, 10, 0)
+        projectile = sprites.createProjectileFromSide(fireballImage, 10, 0)
         projectile.y = screen.height - 8 - 4
+        projectile = sprites.createProjectileFromSide(fireballFlipImage, -10, 0)
+        projectile.x = screen.width
+        projectile.y = screen.height - 16 - 4
     }
     fireballCounter++
     if (fireballCounter >= fireballPattern.length) {
